@@ -9,10 +9,13 @@
     <title>Quiz App</title>
   </head>
   <body>
-    <cool-ad>
+    <div class="ad">
 
   <template class="ad__mobile">
-    </template>
+
+    // Mobile ad HTML code with inline script
+
+  </template>
 
   <template class="ad__desktop">
 
@@ -20,7 +23,25 @@
 
   </template>
 
-</cool-ad>
+  <script>
+
+    const isMobile = matchMedia('(max-device-width: 20em)').matches;
+
+    const ad = document.currentScript.closest('.ad');
+
+    const content = ad
+
+      .querySelector(isMobile ? '.ad__mobile' : '.ad__desktop')
+
+      .content;
+
+    
+
+    ad.appendChild(document.importNode(content, true));
+
+  </script>
+
+</div> 
        <img src="ait.jpg" height="125" width="120" alt="logo" align="left" />
     <strong>
         <h3 align="center">Dr. AMBEDKAR INSTITUTE OF TECHNOLOGY</h3>
